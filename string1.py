@@ -24,8 +24,10 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    """Your code goes here.  Edit this docstring."""
-    return
+    result = str(count)
+    if count > 9:
+        result = 'many'
+    return 'Number of donuts: ' + result
 
 
 # B. both_ends
@@ -34,8 +36,12 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    result = ''
+    if len(s) > 2:
+        first = s[:2]
+        last = s[-2:]
+        result = first+last
+    return result
 
 
 # C. fix_start
@@ -49,7 +55,9 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    result = s.replace(s[:1], "*", len(s))
+    realresult = result.replace('*', s[:1], 1)
+    return realresult
 
 
 # D. MixUp
@@ -61,7 +69,12 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    firsta = a[:2]
+    lasta = a[2:]
+    firstb = b[:2]
+    lastb = b[2:]
+    result = firstb+lasta + ' ' + firsta + lastb
+    return result
 
 
 # Provided simple test() function used in main() to print
@@ -73,7 +86,7 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
-    
+
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
