@@ -54,18 +54,14 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
     """Your code goes here.  Edit this docstring."""
-    a_front = a[:(len(a)/2)]
-    a_back = a[(len(a)/2):]
-    b_front = b[:(len(b)/2)]
-    b_back = b[(len(b)/2):]
+    a_index = len(a)/2
+    b_index = len(b)/2
     if len(a) % 2 != 0:
-        a_front = a[:(len(a)/2)+1]
-        a_back = a[(len(a)/2)+1:]
+        a_index += 1
     if len(b) % 2 != 0:
-        b_front = b[:(len(b)/2)+1]
-        b_back = b[(len(b)/2)+1:]
+        b_index += 1
 
-    result = a_front + b_front + a_back + b_back
+    result = a[:a_index] + b[:b_index] + a[a_index:] + b[b_index:]
     return result
 
 
